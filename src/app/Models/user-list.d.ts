@@ -1,7 +1,7 @@
-import {MarqueJsonld } from "./marque-jsonld"
+import {UserJsonld } from "./user-jsonld"
 
-export interface MarqueList {
-  'hydra:member':Array<MarqueJsonld>;
+export interface UserList {
+  'hydra:member':Array<UserJsonld>;
   'hydra:totalItems': number;
   'hydra:view': {
     '@id': string;

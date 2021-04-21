@@ -1,4 +1,4 @@
-export interface MarqueJsonld{
+export interface MarqueListFilter {
     name: string,
     logoUrl: string,
     modeles: [

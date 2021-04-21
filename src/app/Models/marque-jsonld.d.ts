@@ -1,12 +1,12 @@
 export interface MarqueJsonld{
-    '@context': string;
     '@id': string;
     '@type': string;
+    '@context': string;
     id: number;
     name: string,
-    logoUrl: string,
+    logoUrl?: string,
     modeles: [
     string
     ],
-    isCommon: boolean
+    isCommon?: boolean
   }

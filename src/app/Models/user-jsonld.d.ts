@@ -1,4 +1,4 @@
-export interface AdminJsonld {
+export interface UserJsonld {
     '@id': string,
     '@type': string,
     '@context': string,
@@ -8,6 +8,9 @@ export interface AdminJsonld {
       string
     ],
     password: string,
+    garages: [
+      string
+    ],
     firstname?: string,
     lastname?: string,
     username: string,
