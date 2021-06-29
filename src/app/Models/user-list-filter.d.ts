@@ -1,12 +1,8 @@
 export interface UserListFilter {
     email: string,
-    roles: [
-      string
-    ],
+    roles: Array<string>,
     password: string,
-    garages: [
-      string
-    ],
+    garages: Array<string>,
     firstname: string,
     lastname: string,
     username: string,

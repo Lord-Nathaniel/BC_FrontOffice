@@ -1,0 +1,23 @@
+<section id="page">
+    <h1>Oups, il y a du avoir une erreur !</h1>
+    <h3>Vous pouvez retenter d'accéder aux annonces de cet utilisateur.</h3>
+    <form #formRedirect="ngForm">
+        <tbody>
+            <tr>
+                <td>
+                    <input type="text" class="form-control" placeholder="entrez l'id de l'utilisateur" name="userid" [(ngModel)]="userid">
+                </td>
+                <td>
+                    <button type="button " [class]="isDarkMode ? 'btn btn-outline-light' : 'btn btn-outline-dark' " (click)="check()">
+                    <h3>Accéder aux garages de cet utilisateur</h3>
+                </button>
+                </td>
+            </tr>
+        </tbody>
+    </form>
+    <div>
+        <button type="button " [class]="isDarkMode ? 'btn btn-outline-light' : 'btn btn-outline-dark' " [routerLink]=" '' ">
+        <h3>Retour à l'accueil</h3>
+    </button>
+    </div>
+</section>

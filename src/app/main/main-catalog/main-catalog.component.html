@@ -1,0 +1,24 @@
+<section id="page">
+    <div class="row card-group">
+        <div *ngFor="let car of cars" class="col-4">
+            <div class="ecartement">
+                <mat-card class="example-card">
+                    <mat-card-header>
+                        <mat-card-title>{{ car.name }}</mat-card-title>
+                        <mat-card-content><b> Prix : {{ car.price }} €</b></mat-card-content>
+                        <mat-card-subtitle> Annonce n° {{ car.id }}</mat-card-subtitle>
+                    </mat-card-header>
+                    <img mat-card-image class="one-makes-you-smaller" src="https://cdn.motor1.com/images/mgl/qvx9g/s3/diaporama-vehicules-occasion.jpg" alt="Photo of a Shiba Inu">
+                    <mat-card-content>
+                        {{ car.description }}
+                    </mat-card-content>
+                    <mat-card-actions>
+                        <button type="button" [class]="isDarkMode ? 'btn btn-outline-light' : 'btn btn-outline-dark' " [routerLink]="['/mainView/', car.id]">
+                    Consulter l'annonce
+                    </button>
+                    </mat-card-actions>
+                </mat-card>
+            </div>
+        </div>
+    </div>
+</section>

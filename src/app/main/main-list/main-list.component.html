@@ -1,0 +1,160 @@
+<section id="page">
+    <form #formFilters="ngForm" (ngSubmit)="applyFilters()">
+        <table>
+            <thead>
+                <!-- <tr>
+                    <th scope="col">Annonce</th>
+                    <th scope="col">Marque</th>
+                    <th scope="col">Modele</th>
+                    <th scope="col">Carburant</th>
+                    <th scope="col">Date de fabrication</th>
+                    <th scope="col">Kilométrage</th>
+                    <th scope="col">Prix</th>
+                </tr> -->
+                <!-- Bouton de Filtre Marque -->
+                <tr>
+                    <td></td>
+                    <td>
+                        <div class="row">
+                            <div class="col">
+                                <div ngbDropdown class="d-inline-block">
+                                    <button class="btn btn-outline-dark" id="dropdownBasic1" ngbDropdownToggle>{{ displayMarque }}</button>
+                                    <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                                        <ng-container *ngFor="let marque of marques">
+                                            <button ngbDropdownItem class="dropdown-item" (click)="marque_selected(marque.id,marque.name)">{{ marque.name }}</button>
+                                        </ng-container>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                    <!-- Bouton de Filtre Modele -->
+                    <td>
+                        <div class="row">
+                            <div class="col">
+                                <div ngbDropdown class="d-inline-block">
+                                    <button [attr.disabled]="modeleDisabled ? true : null" class="btn btn-outline-dark" id="dropdownBasic1" ngbDropdownToggle>{{ displayModele }}</button>
+                                    <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                                        <ng-container *ngFor="let modeleSelected of modelesSelected">
+                                            <button ngbDropdownItem class="dropdown-item" (click)="modele_selected(modeleSelected.id,modeleSelected.name)">{{ modeleSelected.name }}</button>
+                                        </ng-container>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                    <!-- Bouton de Filtre Energy -->
+                    <td>
+                        <div class="row">
+                            <div class="col">
+                                <div ngbDropdown class="d-inline-block">
+                                    <button class="btn btn-outline-dark" id="dropdownBasic1" ngbDropdownToggle>{{ displayEnergy }}</button>
+                                    <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                                        <ng-container *ngFor="let energie of energies">
+                                            <button ngbDropdownItem class="dropdown-item" (click)="energy_selected(energie.id,energie.name)">{{ energie.name }}</button>
+                                        </ng-container>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                    <!-- Bouton de Fourchette Year -->
+                    <td>
+                        <div class="row">
+                            <div class="col">
+                                <div ngbDropdown class="d-inline-block">
+                                    <button class="btn btn-outline-dark" id="dropdownBasic1" ngbDropdownToggle> Fabriquée entre {{ valueYearMin }} et {{valueYearMax}} </button>
+                                    <div ngbDropdownMenu aria-labelledby="dropdownBasic1" class="dropdown-slider">
+                                        <ngx-slider [(value)]="valueYearMin" [(highValue)]="valueYearMax" [options]="optionsYear"></ngx-slider>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                    <!-- Bouton de Fourchette Km -->
+                    <td>
+                        <div class="row">
+                            <div class="col">
+                                <div ngbDropdown class="d-inline-block">
+                                    <button class="btn btn-outline-dark" id="dropdownBasic1" ngbDropdownToggle> Entre {{ valueKmMin }} et {{valueKmMax}} km parcourus</button>
+                                    <div ngbDropdownMenu aria-labelledby="dropdownBasic1" class="dropdown-slider">
+                                        <ngx-slider [(value)]="valueKmMin" [(highValue)]="valueKmMax" [options]="optionsKm"></ngx-slider>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                    <!-- Bouton de Fourchette Price -->
+                    <td>
+                        <div class="row">
+                            <div class="col">
+                                <div ngbDropdown class="d-inline-block">
+                                    <button class="btn btn-outline-dark" id="dropdownBasic1" ngbDropdownToggle> Entre {{ valuePriceMin }} et {{valuePriceMax}}€</button>
+                                    <div ngbDropdownMenu aria-labelledby="dropdownBasic1" class="dropdown-slider">
+                                        <ngx-slider [(value)]="valuePriceMin" [(highValue)]="valuePriceMax" [options]="optionsPrice"></ngx-slider>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+        <div class="row card-group">
+            <div *ngFor="let car of cars" class="col-4">
+                <div class="ecartement">
+                    <mat-card class="example-card">
+                        <mat-card-header>
+                            <mat-card-title>{{ car.name }}</mat-card-title>
+                            <mat-card-content><b> Prix : {{ car.price }} €</b></mat-card-content>
+                            <mat-card-subtitle> Annonce n° {{ car.id }}</mat-card-subtitle>
+                        </mat-card-header>
+                        <img mat-card-image class="one-makes-you-smaller" src="https://cdn.motor1.com/images/mgl/qvx9g/s3/diaporama-vehicules-occasion.jpg" alt="Photo of a Shiba Inu">
+                        <mat-card-content>
+                            {{ car.description }}
+                        </mat-card-content>
+                        <mat-card-actions>
+                            <button type="button" [class]="'btn btn-outline-light'" [routerLink]="['/mainView/', car.id]">
+                            Consulter l'annonce
+                            </button>
+                        </mat-card-actions>
+                    </mat-card>
+                </div>
+            </div>
+        </div>
+    </form>
+
+    <nav aria-label="Page navigation example">
+        <ul class="pagination">
+            <li *ngIf="prevLink !== null" class="page-item">
+                <a class="page-link" (click)="loadFirstPage()">
+          Première page
+        </a>
+            </li>
+
+            <li *ngIf="prevLink !== null" class="page-item">
+                <a class="page-link" (click)="loadPreviousPage()">
+          Précédent
+        </a>
+            </li>
+
+            <li *ngFor="let page of getPageNumbers" class="page-item">
+                <a class="page-link" (click)="loadPageByNumber(page)">{{ page }}</a>
+            </li>
+
+            <li *ngIf="nextLink !== null" class="page-item">
+                <a class="page-link" (click)="loadNextPage()">
+          Suivant
+        </a>
+            </li>
+
+            <li *ngIf="nextLink !== null" class="page-item">
+                <a class="page-link" (click)="loadLastPage()">
+          Dernière Page
+        </a>
+            </li>
+        </ul>
+    </nav>
+</section>

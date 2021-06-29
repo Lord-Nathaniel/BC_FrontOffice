@@ -1,0 +1,21 @@
+#page {
+    margin: 110px 10% 0 10%;
+}
+
+fa-icon {
+    size: 3x;
+}
+
+.btn {
+    margin: 20px;
+}
+
+ul {
+    list-style-type: none;
+}
+
+
+/* 
+mat-card {
+    margin-left: 4px;
+} */

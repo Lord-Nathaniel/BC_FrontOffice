@@ -1,0 +1,47 @@
+#loader-container {
+    padding: 0;
+    margin: 0;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    z-index: 99;
+    background-color: black;
+    opacity: 80%;
+}
+
+.spinner {
+    color: blue;
+}
+
+#container-nav {
+    padding: 5px;
+    margin: 0;
+    width: 100%;
+    position: absolute;
+    z-index: 59;
+    top: 0;
+}
+
+img {
+    width: 50%;
+    height: auto;
+}
+
+#CACborders {
+    top: 0;
+    display: block;
+    border-top: 0.2rem solid #c49a52;
+    border-bottom: 0.2rem solid #c49a52;
+    height: 110px;
+}
+
+.boutonAdmin {
+    margin-left: 15px;
+    padding-bottom: 0;
+}
+
+.frontDiv {
+    position: absolute;
+    z-index: 69;
+    left: 150px;
+}

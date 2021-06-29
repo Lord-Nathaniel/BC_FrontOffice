@@ -1,0 +1,155 @@
+<section id="page">
+    <div>
+        <h2>BACK ADMIN - DASHBOARD</h2>
+    </div>
+
+    <div class="spacing"></div>
+
+    <div class="row">
+        <mat-card class="col-3">
+            <mat-card-header>
+                <h3>Il y a {{users}} utilisateurs enregistrés </h3>
+            </mat-card-header>
+            <mat-card-content>
+                <button type="button " [class]="isDarkMode ? 'btn btn-outline-light' : 'btn btn-outline-dark' ">
+                <div style="display: inline;">
+                <fa-icon [icon]="['far', 'address-card']" style="font-size: 3rem;"></fa-icon>
+                <h3>Accéder aux utilisateurs</h3>
+            </div>
+            </button>
+            </mat-card-content>
+        </mat-card>
+
+        <mat-card class="col-3">
+            <mat-card-header>
+                <h3>Il y a {{garages}} garages enregistrés </h3>
+            </mat-card-header>
+            <mat-card-content>
+                <button type="button " [class]="isDarkMode ? 'btn btn-outline-light' : 'btn btn-outline-dark' ">
+                <div style="display: inline;">
+                <fa-icon [icon]="['fas', 'warehouse']" style="font-size: 3rem;"></fa-icon>
+                <h3>Accéder aux garages</h3>
+            </div>
+            </button>
+            </mat-card-content>
+        </mat-card>
+
+        <mat-card class="col-3">
+            <mat-card-header>
+                <h3>Il y a {{cars}} annonces enregistrés </h3>
+            </mat-card-header>
+            <mat-card-content>
+                <button type="button " [class]="isDarkMode ? 'btn btn-outline-light' : 'btn btn-outline-dark' ">
+                <div style="display: inline;">
+                <fa-icon [icon]="['fas', 'car']" style="font-size: 3rem;"></fa-icon>
+                <h3>Accéder aux annonces</h3>
+            </div>
+            </button>
+            </mat-card-content>
+        </mat-card>
+
+        <mat-card class="col-3">
+            <mat-card-header>
+                <h3>Vous avez 3 formulaires en attentes </h3>
+            </mat-card-header>
+            <mat-card-content>
+                <button type="button " [class]="isDarkMode ? 'btn btn-outline-light' : 'btn btn-outline-dark' " [routerLink]="['/profileInfos/', userId]">
+                <div style="display: inline;">
+                <fa-icon [icon]="['fas', 'comments']" style="font-size: 3rem;"></fa-icon>
+                <h3>Accéder aux formulaires</h3>
+            </div>
+            </button>
+            </mat-card-content>
+        </mat-card>
+    </div>
+
+</section>
+<!-- 
+<section id="page">
+    <mat-card>
+        <mat-card-header>
+            <div *ngIf="viewCar.isSold">
+                <h1 classe="vente">VENDU !</h1>
+            </div>
+
+            <div mat-card-avatar class="example-header-image">
+                <fa-icon [icon]="['fas', 'search']" style="font-size: 3rem;"></fa-icon>
+            </div>
+            <mat-card-title>{{ viewCar.name }}</mat-card-title>
+            <mat-card-title>{{ viewCar.price }} € </mat-card-title>
+            <mat-card-subtitle>Annonce n° {{ viewCar.id }} </mat-card-subtitle>
+        </mat-card-header>
+        <img mat-card-image src="https://cdn.motor1.com/images/mgl/qvx9g/s3/diaporama-vehicules-occasion.jpg" alt="Photo of a Shiba Inu">
+        <mat-card-subtitle>Mise en ligne le {{ date }} </mat-card-subtitle>
+        <mat-card-content>
+            {{ viewCar.description }}
+        </mat-card-content>
+
+        <div class="row">
+            <mat-card-content class="col-4">
+                <div classe="sort-one">
+                    <fa-icon [icon]="['fas', 'car']" style="font-size: 3rem;"></fa-icon>
+                    <div class="sort-two">
+                        <mat-card-subtitle>Modèle : </mat-card-subtitle>
+                        {{ marque }}
+                    </div>
+                </div>
+            </mat-card-content>
+            <mat-card-content class="col-4">
+                <div classe="sort-one">
+                    <fa-icon [icon]="['fas', 'car']" style="font-size: 3rem;"></fa-icon>
+                    <div class="sort-two">
+                        <mat-card-subtitle>Modèle : </mat-card-subtitle>
+                        {{ viewCar.modele }}
+                    </div>
+                </div>
+            </mat-card-content>
+            <mat-card-content class="col-4">
+                <div classe="sort-one">
+                    <fa-icon [icon]="['fas', 'comments-dollar']" style="font-size: 3rem;"></fa-icon>
+                    <div class="sort-two">
+                        <mat-card-subtitle>Prix : </mat-card-subtitle>
+                        {{ viewCar.price }} €
+                    </div>
+                </div>
+            </mat-card-content>
+        </div>
+
+        <div class="row">
+            <mat-card-content class="col-4">
+                <div classe="sort-one">
+                    <fa-icon [icon]="['fas', 'route']" style="font-size: 3rem;"></fa-icon>
+                    <div class="sort-two">
+                        <mat-card-subtitle>Kilométrage : </mat-card-subtitle>
+                        {{ viewCar.km }} km
+                    </div>
+                </div>
+            </mat-card-content>
+            <mat-card-content class="col-4">
+                <div classe="sort-one">
+                    <fa-icon [icon]="['fas', 'key']" style="font-size: 3rem;"></fa-icon>
+                    <div class="sort-two">
+                        <mat-card-subtitle>Mise en circulation : </mat-card-subtitle>
+                        {{ viewCar.year }}
+                    </div>
+                </div>
+            </mat-card-content>
+            <mat-card-content class="col-4">
+                <div classe="sort-one">
+                    <fa-icon [icon]="['fas', 'gas-pump']" style="font-size: 3rem;"></fa-icon>
+                    <div class="sort-two">
+                        <mat-card-subtitle>Type de carburant : </mat-card-subtitle>
+                        {{ viewCar.energy }}
+                    </div>
+                </div>
+            </mat-card-content>
+        </div>
+
+        <mat-card-content>
+            <div class="card-body">
+                <p><strong>Contacter le vendeur ?</strong></p>
+                <button [class]="isDarkMode ? 'btn btn-outline-light' : 'btn btn-outline-dark' " (click)="openContact()">Formulaire client</button>
+            </div>
+        </mat-card-content>
+    </mat-card>
+</section> -->

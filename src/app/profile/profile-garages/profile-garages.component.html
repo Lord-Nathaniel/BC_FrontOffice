@@ -1,0 +1,17 @@
+<section id="page">
+    <div>
+        <fa-icon [icon]="['fas', 'warehouse']" style="font-size: 3rem;"></fa-icon>
+        <h2>MES GARAGES</h2><br>
+        <h3>Vous possédez actuellement<b> {{ userGarageLength }} </b>garages </h3>
+    </div>
+
+    <div *ngFor="let garage of garageArray">
+        <app-garage-form [garage]="garage" [violationList]="violationList" (formSubmit)="submit($event)"></app-garage-form>
+        <div class="spacing"></div>
+    </div>
+
+    <button type="button " [class]="isDarkMode ? 'btn btn-outline-light' : 'btn btn-outline-dark' " [routerLink]="['/profileLinks/', userId]">
+        Retourner sur mon profil
+        </button>
+
+</section>

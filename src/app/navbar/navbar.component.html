@@ -1,0 +1,326 @@
+<div *ngIf="loaderService.isLoading | async" id="loader-container">
+    <mat-spinner style="top: 50%; left: 50%;"></mat-spinner>
+</div>
+
+<section id="CACborders"></section>
+
+<!-- User -->
+
+<section id="container-nav" *ngIf="role =='User'">
+    <div class="row align-item-center justify-content-between">
+        <div class="col-2">
+            <button type="button" [class]="isDarkMode ? 'btn btn-outline-light' : 'btn btn-outline-dark' " (click)="isMenuCollapsed = !isMenuCollapsed" [attr.aria-expanded]="!isMenuCollapsed" aria-controls="collapseMenuExample">
+                <fa-icon [icon]="['fas', 'bars']"></fa-icon>
+                <p> Menu </p> 
+            </button>
+            <div #collapse="ngbCollapse" [(ngbCollapse)]="isMenuCollapsed">
+                <mat-card>
+                    <mat-card-content>
+                        <div class="card-body">
+                            <a (click)='check("/")'>Accueil</a>
+                        </div>
+                        <div class="card-body">
+                            <a (click)='check("/mainList")'>Recherche par filtre</a>
+                        </div>
+                        <div class="card-body">
+                            <a (click)='check("/mainCatalog")'>Catalogue</a>
+                        </div>
+                    </mat-card-content>
+                </mat-card>
+                <mat-card class="card-separator">
+                    <mat-card-content>
+                        <div class="card-body">
+                            <a (click)='check("/legalWhoarewe")'>Qui sommes-nous ?</a>
+                        </div>
+                        <div class="card-body">
+                            <a (click)='check("/legalFaq")'>FAQ</a>
+                        </div>
+                        <div class="card-body">
+                            <a (click)='check("/legalMentions")'>Mentions Légales</a>
+                        </div>
+                        <div class="card-body">
+                            <a (click)='check("/legalPoliticalTerms")'>Politique de confidentialité</a>
+                        </div>
+                        <div class="card-body">
+                            <a (click)='check("/legalGCU")'>Condition Générales de Vente</a>
+                        </div>
+                    </mat-card-content>
+                </mat-card>
+                <mat-card class="card-separator">
+                    <mat-card-content>
+                        <button type="button" [class]="isDarkMode ? 'btn btn-outline-light' : 'btn btn-outline-dark' " (click)="isOptionCollapsed = !isOptionCollapsed" [attr.aria-expanded]="!isOptionCollapsed" aria-controls="collapseMenuExample">
+                            <p>Options d'affichage</p>
+                        </button>
+                        <div #collapse="ngbCollapse" [(ngbCollapse)]="isOptionCollapsed">
+                            <mat-card>
+                                <mat-card-content>
+                                    <div class="card-body">
+                                        <mat-slide-toggle (click)="toggleDarkMode()" [(ngModel)]="isDarkMode">Mode nuit</mat-slide-toggle>
+                                    </div>
+                                    <div class="card-body">
+                                        <mat-slide-toggle (click)="toggleFontSize()" [(ngModel)]="isFontSize">
+                                            <p>Taille des caractères</p>
+                                        </mat-slide-toggle>
+                                    </div>
+
+                                </mat-card-content>
+                            </mat-card>
+                        </div>
+                    </mat-card-content>
+                </mat-card>
+            </div>
+        </div>
+        <div class="col-4" *ngIf="!isDarkMode">
+            <img class="images" src="assets/logoSite/logo-light.png" alt="icone Centre AUTO'CCAS Clair">
+        </div>
+        <div class="col-4" *ngIf="isDarkMode">
+            <img class="images" src="assets/logoSite/logo-dark.png" alt="icone Centre AUTO'CCAS Dark mode">
+        </div>
+        <div class="col-4">
+            <h3>Le spécialiste de la revente d'occasion<br>près de chez vous </h3>
+        </div>
+        <div class="col-2">
+            <button type="button" [class]="isDarkMode ? 'btn btn-outline-light' : 'btn btn-outline-dark' " (click)="isContactCollapsed = !isContactCollapsed" [attr.aria-expanded]="!isContactCollapsed" aria-controls="collapseContactExample">
+                <fa-icon [icon]="['fas', 'comment-dots']"></fa-icon>
+                <p> Contact </p> 
+            </button>
+            <div #collapse="ngbCollapse" [(ngbCollapse)]="isContactCollapsed">
+                <mat-card>
+                    <mat-card-content>
+                        <button type="button" [class]="isDarkMode ? 'btn btn-outline-light' : 'btn btn-outline-dark' " (click)="isProfessionnelCollapsed = !isProfessionnelCollapsed" [attr.aria-expanded]="!isProfessionnelCollapsed" aria-controls="collapseMenuExample">
+                            <p>Je suis un <strong>Professionnel</strong></p>
+                        </button>
+                        <div #collapse="ngbCollapse" [(ngbCollapse)]="isProfessionnelCollapsed">
+                            <mat-card-content>
+                                <div class="card-body">
+                                    <p><strong>Nouveau ?</strong></p>
+                                    <button [class]="isDarkMode ? 'btn btn-outline-light' : 'btn btn-outline-dark' " (click)="openInscription()">Formulaire d'inscription</button>
+                                </div>
+                                <div class="card-body">
+                                    <p><strong>Inscrit ?</strong></p>
+                                    <button [class]="isDarkMode ? 'btn btn-outline-light' : 'btn btn-outline-dark' " (click)="openIdentifier()">S'identifier</button>
+                                </div>
+                            </mat-card-content>
+                        </div>
+
+                        <button type="button" [class]="isDarkMode ? 'btn btn-outline-light' : 'btn btn-outline-dark' " (click)="isParticulierCollapsed = !isParticulierCollapsed" [attr.aria-expanded]="!isMenuCollapsed" aria-controls="collapseMenuExample">
+                            <p>Je suis un <strong>Particulier</strong></p>
+                        </button>
+                        <div #collapse="ngbCollapse" [(ngbCollapse)]="isParticulierCollapsed">
+                            <div class="card-body">
+                                <p><strong>Une question ?</strong></p>
+                                <button [class]="isDarkMode ? 'btn btn-outline-light' : 'btn btn-outline-dark' " (click)="openContact()">Formulaire client</button>
+                            </div>
+                        </div>
+                    </mat-card-content>
+                </mat-card>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Admin -->
+
+<section id="container-nav" *ngIf="role =='Admin'">
+    <div class="row align-item-center justify-content-between">
+        <!-- <div class="col-2">
+            <button type="button" [class]="isDarkMode ? 'btn btn-outline-light' : 'btn btn-outline-dark' " (click)="isMenuCollapsed = !isMenuCollapsed" [attr.aria-expanded]="!isMenuCollapsed" aria-controls="collapseMenuExample">
+                <fa-icon [icon]="['fas', 'bars']"></fa-icon>
+                <p> Menu </p> 
+            </button>
+            <div #collapse="ngbCollapse" [(ngbCollapse)]="isMenuCollapsed">
+                <mat-card>
+                    <mat-card-content>
+                        <div class="card-body">
+                            <a (click)='check("/")'>Accueil</a>
+                        </div>
+                        <div class="card-body">
+                            <a (click)='check("/mainList")'>Recherche par filtre</a>
+                        </div>
+                        <div class="card-body">
+                            <a (click)='check("/mainCatalog")'>Catalogue</a>
+                        </div>
+                    </mat-card-content>
+                </mat-card>
+                <mat-card class="card-separator">
+                    <mat-card-content>
+                        <div class="card-body">
+                            <a (click)='check("/legalWhoarewe")'>Qui sommes-nous ?</a>
+                        </div>
+                        <div class="card-body">
+                            <a (click)='check("/legalFaq")'>FAQ</a>
+                        </div>
+                        <div class="card-body">
+                            <a (click)='check("/legalMentions")'>Mentions Légales</a>
+                        </div>
+                        <div class="card-body">
+                            <a (click)='check("/legalPoliticalTerms")'>Politique de confidentialité</a>
+                        </div>
+                        <div class="card-body">
+                            <a (click)='check("/legalGCU")'>Condition Générales de Vente</a>
+                        </div>
+                    </mat-card-content>
+                </mat-card>
+                <mat-card class="card-separator">
+                    <mat-card-content>
+                        <button type="button" [class]="isDarkMode ? 'btn btn-outline-light' : 'btn btn-outline-dark' " (click)="isOptionCollapsed = !isOptionCollapsed" [attr.aria-expanded]="!isOptionCollapsed" aria-controls="collapseMenuExample">
+                            <p>Options d'affichage</p>
+                        </button>
+                        <div #collapse="ngbCollapse" [(ngbCollapse)]="isOptionCollapsed">
+                            <mat-card>
+                                <mat-card-content>
+                                    <div class="card-body">
+                                        <mat-slide-toggle (click)="toggleDarkMode()" [(ngModel)]="isDarkMode">Mode nuit</mat-slide-toggle>
+                                    </div>
+                                    <div class="card-body">
+                                        <mat-slide-toggle (click)="toggleFontSize()" [(ngModel)]="isFontSize">
+                                            <p>Taille des caractères</p>
+                                        </mat-slide-toggle>
+                                    </div>
+
+                                </mat-card-content>
+                            </mat-card>
+                        </div>
+                    </mat-card-content>
+                </mat-card>
+            </div>
+        </div>
+
+            <button type="button" [class]="isDarkMode ? 'btn btn-outline-light' : 'btn btn-outline-dark' " (click)="isContactCollapsed = !isContactCollapsed" [attr.aria-expanded]="!isContactCollapsed" aria-controls="collapseContactExample">
+                <fa-icon [icon]="['fas', 'comment-dots']"></fa-icon>
+                <p> Contact </p> 
+            </button>
+            <div #collapse="ngbCollapse" [(ngbCollapse)]="isContactCollapsed">
+                <mat-card>
+                    <mat-card-content>
+                        <button type="button" [class]="isDarkMode ? 'btn btn-outline-light' : 'btn btn-outline-dark' " (click)="isProfessionnelCollapsed = !isProfessionnelCollapsed" [attr.aria-expanded]="!isProfessionnelCollapsed" aria-controls="collapseMenuExample">
+                            <p>Je suis un <strong>Professionnel</strong></p>
+                        </button>
+                        <div #collapse="ngbCollapse" [(ngbCollapse)]="isProfessionnelCollapsed">
+                            <mat-card-content>
+                                <div class="card-body">
+                                    <p><strong>Nouveau ?</strong></p>
+                                    <button [class]="isDarkMode ? 'btn btn-outline-light' : 'btn btn-outline-dark' " (click)="openInscription()">Formulaire d'inscription</button>
+                                </div>
+                                <div class="card-body">
+                                    <p><strong>Inscrit ?</strong></p>
+                                    <button [class]="isDarkMode ? 'btn btn-outline-light' : 'btn btn-outline-dark' " (click)="openIdentifier()">S'identifier</button>
+                                </div>
+                            </mat-card-content>
+                        </div>
+
+                        <button type="button" [class]="isDarkMode ? 'btn btn-outline-light' : 'btn btn-outline-dark' " (click)="isParticulierCollapsed = !isParticulierCollapsed" [attr.aria-expanded]="!isMenuCollapsed" aria-controls="collapseMenuExample">
+                            <p>Je suis un <strong>Particulier</strong></p>
+                        </button>
+                        <div #collapse="ngbCollapse" [(ngbCollapse)]="isParticulierCollapsed">
+                            <div class="card-body">
+                                <p><strong>Une question ?</strong></p>
+                                <button [class]="isDarkMode ? 'btn btn-outline-light' : 'btn btn-outline-dark' " (click)="openContact()">Formulaire client</button>
+                            </div>
+                        </div>
+                    </mat-card-content>
+                </mat-card>
+            </div>
+        </div>
+    </div> -->
+        <div class="col-10" *ngIf="!isDarkMode">
+            <button type="button " [class]="isDarkMode ? 'btn btn-outline-light' : 'btn btn-outline-dark' " [routerLink]="['/adminDashboard/', userId]" class="boutonAdmin">
+        <h3>Dashboard</h3>
+        </button>
+            <button type="button " [class]="isDarkMode ? 'btn btn-outline-light' : 'btn btn-outline-dark' " (click)="isAdminUserCollapsed = !isAdminUserCollapsed" [attr.aria-expanded]="!isAdminUserCollapsed" aria-controls="isAdminUserCollapsed" class="boutonAdmin">
+        <h3>Gestion des utilisateurs</h3>
+        </button>
+            <div #collapse="ngbCollapse" [(ngbCollapse)]="isAdminUserCollapsed" class="frontDiv">
+                <mat-card>
+                    <mat-card-content>
+                        <div class="card-body">
+                            <a>Liste</a>
+                        </div>
+                        <div class="card-body">
+                            <a>Vue détaillée</a>
+                        </div>
+                        <div class="card-body">
+                            <a>Ajout</a>
+                        </div>
+                        <div class="card-body">
+                            <a>Modification</a>
+                        </div>
+                    </mat-card-content>
+                </mat-card>
+            </div>
+            <button type="button " [class]="isDarkMode ? 'btn btn-outline-light' : 'btn btn-outline-dark' " (click)="isAdminGarageCollapsed = !isAdminGarageCollapsed" [attr.aria-expanded]="!isAdminGarageCollapsed" aria-controls="isAdminGarageCollapsed" class="boutonAdmin">
+        <h3>Gestion des garages</h3>
+        </button>
+            <div #collapse="ngbCollapse" [(ngbCollapse)]="isAdminGarageCollapsed">
+                <mat-card>
+                    <mat-card-content>
+                        <div class="card-body">
+                            <a>Liste</a>
+                        </div>
+                        <div class="card-body">
+                            <a>Vue détaillée</a>
+                        </div>
+                        <div class="card-body">
+                            <a>Ajout</a>
+                        </div>
+                        <div class="card-body">
+                            <a>Modification</a>
+                        </div>
+                    </mat-card-content>
+                </mat-card>
+            </div>
+            <button type="button " [class]="isDarkMode ? 'btn btn-outline-light' : 'btn btn-outline-dark' " (click)="isAdminCarCollapsed = !isAdminCarCollapsed" [attr.aria-expanded]="!isAdminCarCollapsed" aria-controls="isAdminCarCollapsed" class="boutonAdmin">
+        <h3>Gestion des annonces</h3>
+        </button>
+            <div #collapse="ngbCollapse" [(ngbCollapse)]="isAdminCarCollapsed">
+                <mat-card>
+                    <mat-card-content>
+                        <div class="card-body">
+                            <a>Liste</a>
+                        </div>
+                        <div class="card-body">
+                            <a>Vue détaillée</a>
+                        </div>
+                        <div class="card-body">
+                            <a>Ajout</a>
+                        </div>
+                        <div class="card-body">
+                            <a>Modification</a>
+                        </div>
+                    </mat-card-content>
+                </mat-card>
+            </div>
+            <button type="button" [class]="isDarkMode ? 'btn btn-outline-light' : 'btn btn-outline-dark' " (click)="isOptionCollapsed = !isOptionCollapsed" [attr.aria-expanded]="!isOptionCollapsed" aria-controls="collapseMenuExample" class="boutonAdmin">
+            <p>Options d'affichage</p>
+        </button>
+            <div #collapse="ngbCollapse" [(ngbCollapse)]="isOptionCollapsed">
+                <mat-card>
+                    <mat-card-content>
+                        <div class="card-body">
+                            <mat-slide-toggle (click)="toggleDarkMode()" [(ngModel)]="isDarkMode">Mode nuit</mat-slide-toggle>
+                        </div>
+                        <div class="card-body">
+                            <mat-slide-toggle (click)="toggleFontSize()" [(ngModel)]="isFontSize">
+                                <p>Taille des caractères</p>
+                            </mat-slide-toggle>
+                        </div>
+
+                    </mat-card-content>
+                </mat-card>
+            </div>
+            <button type="button " [class]="isDarkMode ? 'btn btn-outline-light' : 'btn btn-outline-dark' " [routerLink]=" '' " class="boutonAdmin">
+                <h3>Accéder aux formulaires</h3>
+                </button>
+            <button type="button " [class]="isDarkMode ? 'btn btn-outline-light' : 'btn btn-outline-dark' " [routerLink]=" '' " class="boutonAdmin">
+        <h3>Se déconnecter</h3>
+        </button>
+        </div>
+
+        <div class="col-2" *ngIf="!isDarkMode">
+            <img class="images" src="assets/logoSite/logo-light.png" alt="icone Centre AUTO'CCAS Clair">
+        </div>
+        <div class="col-2" *ngIf="isDarkMode">
+            <img class="images" src="assets/logoSite/logo-dark.png" alt="icone Centre AUTO'CCAS Dark mode">
+        </div>
+    </div>
+</section>

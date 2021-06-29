@@ -1,0 +1,22 @@
+<section id="page">
+    <h1>Bienvenue sur le centre AUTO'ccas</h1>
+
+    <h2>Actuellement {{ cars }} voitures en vente</h2>
+
+    <h2>Vous ne savez pas par où commencer ?</h2>
+    <button type="button" [class]="isDarkMode ? 'btn btn-outline-light' : 'btn btn-outline-dark' " [routerLink]="'/mainView'">
+    Cliquez ici pour utiliser le guide !
+    </button>
+
+
+    <h2>Je sais quelle voiture je recherche</h2>
+    <button type="button" [class]="isDarkMode ? 'btn btn-outline-light' : 'btn btn-outline-dark' " [routerLink]="'/mainList'">
+        Cliquez ici pour aller sur la page de recherche !
+    </button>
+
+    <h2>Je souhaites regarder tout ce que vous avez à vendre</h2>
+    <button type="button" [class]="isDarkMode ? 'btn btn-outline-light' : 'btn btn-outline-dark' " [routerLink]="'/mainCatalog'">
+    Cliquez ici pour aller sur le catalogue !
+    </button>
+
+</section>

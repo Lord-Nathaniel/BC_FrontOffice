@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 16.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="Calque_2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="300px" height="150px" viewBox="0 0 300 150" enable-background="new 0 0 300 150" xml:space="preserve">
+<text transform="matrix(1 0 0 1 9.9873 69.1509)"><tspan x="0" y="0" fill="#C49A52" font-family="'Roboto-Black'" font-size="28.2753">AUT</tspan><tspan x="53.485" y="0" fill="none" font-family="'Roboto-Black'" font-size="29.3899">O</tspan><tspan x="73.806" y="0" fill="#F6F6F6" font-family="'Roboto-Black'" font-size="29.3899">’CCAS</tspan></text>
+<text transform="matrix(1 0 0 1 26.7202 83.3086)" fill="#F6F6F6" font-family="'Roboto-BoldCondensedItalic'" font-size="13.2255">Le professionnel de la voiture</text>
+<text transform="matrix(1 0 0 1 9.5703 46.7778)" fill="#C49A52" font-family="'Roboto-Black'" font-size="28.2753">Centre</text>
+<linearGradient id="SVGID_1_" gradientUnits="userSpaceOnUse" x1="63.5313" y1="59.168" x2="83.3691" y2="59.168">
+	<stop  offset="0.016" style="stop-color:#C49A52"/>
+	<stop  offset="1" style="stop-color:#F6F6F6"/>
+</linearGradient>
+<path fill-rule="evenodd" clip-rule="evenodd" fill="url(#SVGID_1_)" d="M73.45,48.988c-5.478,0-9.919,4.557-9.919,10.179
+	s4.441,10.18,9.919,10.18c5.479,0,9.919-4.558,9.919-10.18S78.929,48.988,73.45,48.988z M73.45,65.101
+	c-3.192,0-5.781-2.656-5.781-5.933c0-3.277,2.589-5.933,5.781-5.933c3.193,0,5.782,2.656,5.782,5.933
+	C79.232,62.445,76.644,65.101,73.45,65.101z"/>
+<path fill-rule="evenodd" clip-rule="evenodd" fill="#F6F6F6" d="M10.282,99.143c96.874-18.34,238.863,12.252,238.863,12.252
+	S93.277,91.173,55.078,118.826c-3.914-3.824-6.156-5.517-17.644-10.169c46.578-10.781,120.756-7.765,120.756-7.765
+	s-77.394-7.703-130.438,2.756C19.014,100.74,21.86,100.406,10.282,99.143z"/>
+<path fill-rule="evenodd" clip-rule="evenodd" fill="#C49A52" d="M211.629,88.619c18.219-48.448,78.471-12.543,49.791,25.74
+	C284.581,75.303,230.683,46.385,211.629,88.619z"/>
+<path fill-rule="evenodd" clip-rule="evenodd" fill="#C49A52" d="M179.676,53.6c6.728,1.006,13.427,2.59,20.188,2.905
+	c17.467,0.814,34.959,1.44,52.439,1.443c17.513,0.002,31.892,5.427,41.48,20.826c0.153,0.248,0.477,0.394,1.319,1.058
+	c-5.24-14.102-15.002-21.9-28.726-24.821c-4.747-1.01-9.692-1.448-14.554-1.501c-16.525-0.182-33.057-0.077-49.584-0.081
+	c-7.448-0.001-14.896,0-22.344,0C179.821,53.485,179.748,53.542,179.676,53.6z"/>
+<path fill-rule="evenodd" clip-rule="evenodd" fill="#C49A52" d="M90.197,27.807c25.904-1.823,50.947,1.568,75.162,11.037
+	c9.434,3.688,18.861,7.434,28.458,10.649c3.81,1.276,8.077,1.184,12.137,1.715c-16.245-3.927-30.736-12.095-46.053-18.12
+	c-14.307-5.63-38.503-9.369-48.671-9.173C101.061,24.112,90.197,27.807,90.197,27.807z"/>
+</svg>

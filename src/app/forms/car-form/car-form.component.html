@@ -1,0 +1,37 @@
+<mat-card>
+    <form *ngIf="car" #carForm="ngForm" (ngSubmit)="submit()">
+        <div class="form-group">
+            <label for="name">Titre de l'annonce :</label>
+            <input type="text" class="form-control" id="name" aria-describedby="nameHelp" [(ngModel)]="car.name" name="name">
+            <small *ngFor="let err of retrieveErrors('name')" class="form-text text-danger">{{ err }}</small>
+        </div>
+
+        <div class="form-group">
+            <label for="description">Description de l'annonce :</label>
+            <input type="text" class="form-control" id="description" aria-describedby="descriptionHelp" [(ngModel)]="car.description" name="description">
+            <small *ngFor="let err of retrieveErrors('description')" class="form-text text-danger">{{ err }}</small>
+        </div>
+
+        <div class="form-group">
+            <label for="price">Prix :</label>
+            <input type="text" class="form-control" id="price" aria-describedby="releasePriceHelp" [(ngModel)]="car.price" name="releasePrice">
+            <small *ngFor="let err of retrieveErrors('releasePrice')" class="form-text text-danger">{{ err }}</small>
+        </div>
+
+        <div class="form-group">
+            <label for="km">Kilométrage de la voiture :</label>
+            <input type="text" class="form-control" id="km" aria-describedby="kmHelp" [(ngModel)]="car.km" name="km">
+            <small *ngFor="let err of retrieveErrors('km')" class="form-text text-danger">{{ err }}</small>
+        </div>
+
+        <div class="form-group">
+            <label for="year">Année de fabrication de la voiture :</label>
+            <input type="text" class="form-control" id="year" aria-describedby="yearHelp" [(ngModel)]="car.year" name="year">
+            <small *ngFor="let err of retrieveErrors('year')" class="form-text text-danger">{{ err }}</small>
+        </div>
+
+        <button *ngIf="creation" type="submit" [class]="isDarkMode ? 'btn btn-outline-light' : 'btn btn-outline-dark' " [routerLink]=" '/profileLinks/viewUser.id' " (click)="openSnackBar()">Créer l'annonce</button>
+        <button *ngIf="!creation" type="submit" [class]="isDarkMode ? 'btn btn-outline-light' : 'btn btn-outline-dark' " [routerLink]=" '/profileLinks/viewUser.id' " (click)="openSnackBar()">Mettre à jour l'annonce'</button>
+
+    </form>
+</mat-card>

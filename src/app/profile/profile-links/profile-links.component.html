@@ -1,0 +1,25 @@
+<section id="page">
+    <div>
+        <h2>MON PROFIL</h2>
+    </div>
+
+    <div class="spacing"></div>
+
+    <button type="button " [class]="isDarkMode ? 'btn btn-outline-light' : 'btn btn-outline-dark' " [routerLink]="['/profileInfos/', userId]">
+        <fa-icon [icon]="['far', 'address-card']" style="font-size: 3rem;"></fa-icon>
+        <h3>Gérer son compte</h3>
+    </button>
+    <button type="button " [class]="isDarkMode ? 'btn btn-outline-light' : 'btn btn-outline-dark' " [routerLink]="['/profileGarages/', userId]">
+        <fa-icon [icon]="['fas', 'warehouse']" style="font-size: 3rem;"></fa-icon>
+        <h3>Gérer ses garages</h3>
+    </button>
+    <button type="button " [class]="isDarkMode ? 'btn btn-outline-light' : 'btn btn-outline-dark' " [routerLink]="['/profileCars/', userId]">
+        <fa-icon [icon]="['fas', 'car']" style="font-size: 3rem;"></fa-icon>
+        <h3>Gérer ses annonces par garage</h3>
+    </button>
+    <button type="button " [class]="isDarkMode ? 'btn btn-outline-light' : 'btn btn-outline-dark' " [routerLink]=" '' ">
+        <fa-icon [icon]="['fas', 'sign-out-alt']" style="font-size: 3rem;"></fa-icon>
+        <h3>Se déconnecter</h3>
+    </button>
+
+</section>

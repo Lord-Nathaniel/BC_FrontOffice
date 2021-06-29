@@ -1,0 +1,24 @@
+<h1 mat-dialog-title>
+    Avez-vous une question ?</h1>
+<div mat-dialog-content>
+    <mat-form-field>
+        <mat-label>Votre nom :</mat-label>
+        <input matInput [(ngModel)]="data.lastnameContact" required>
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>Votre adresse mail :</mat-label>
+        <input matInput [(ngModel)]="data.emailContact" required>
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>Votre téléphone (optionel) :</mat-label>
+        <input matInput [(ngModel)]="data.phoneContact">
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>Votre message :</mat-label>
+        <input matInput [(ngModel)]="data.textContact" required>
+    </mat-form-field>
+</div>
+<div mat-dialog-actions>
+    <button mat-button [mat-dialog-close]="data" cdkFocusInitial>S'inscrire</button>
+    <button mat-button (click)="onNoClick()">Fermer</button>
+</div>

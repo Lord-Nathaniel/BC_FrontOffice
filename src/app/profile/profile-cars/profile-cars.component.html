@@ -1,0 +1,17 @@
+<section id="page">
+    <div>
+        <fa-icon [icon]="['fas', 'car']" style="font-size: 3rem;"></fa-icon>
+        <h2>MES ANNONCES</h2>
+        <h3>Vous possédez actuellement<b> {{ userGarageCarLength }} </b>annonces au total </h3>
+    </div>
+
+    <div *ngFor="let car of carArray">
+        <app-car-form [car]="car" [violationList]="violationList" (formSubmit)="submit($event)"></app-car-form>
+        <div class="spacing"></div>
+    </div>
+
+    <button type="button " [class]="isDarkMode ? 'btn btn-outline-light' : 'btn btn-outline-dark' " [routerLink]="['/profileLinks/', userId]">
+        Retourner sur mon profil
+        </button>
+
+</section>

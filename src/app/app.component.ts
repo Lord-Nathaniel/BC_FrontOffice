@@ -9,6 +9,7 @@ import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
 })
 export class AppComponent {
   title = 'BCFront';
+  public bonjour = '';
 
   closeResult = '';
 
@@ -20,6 +21,7 @@ export class AppComponent {
     }, (reason) => {
       this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
     });
+
   }
 
   private getDismissReason(reason: any): string {

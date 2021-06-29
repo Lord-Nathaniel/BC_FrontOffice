@@ -1,0 +1,121 @@
+<section id="page">
+
+    <div class="m-4">
+        <button type="button" class="btn btn-outline-dark" routerLink="/adminAd/create">
+      Créer un nouvel utilisateur
+    </button>
+    </div>
+
+    <form #formFilters="ngForm" (ngSubmit)="applyFilters()">
+        <table class="table">
+            <thead>
+                <tr>
+                    <td>
+                        <h3>{{userQuantity}}</h3>
+                    </td>
+                    <td>
+                        <h3>utilisateurs enregistrés</h3>
+                    </td>
+                </tr>
+
+                <tr>
+                    <th scope="col"></th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Garages</th>
+                    <th scope="col">Prénom</th>
+                    <th scope="col">Nom</th>
+                    <th scope="col">Nom d'utilisateur</th>
+                </tr>
+
+                <tr>
+                    <td></td>
+                    <td>
+                        <div class="form-group">
+                            <input type="text" class="form-control" [(ngModel)]="filters.email" name="email">
+                        </div>
+                    </td>
+                    <td>
+                        <div class="form-group">
+                            <input type="text" class="form-control" [(ngModel)]="filters.garages" name="garages">
+                        </div>
+                    </td>
+                    <td>
+                        <div class="form-group">
+                            <input type="text" class="form-control" [(ngModel)]="filters.firstname" name="garages">
+                        </div>
+                    </td>
+                    <td>
+                        <div class="form-group">
+                            <input type="text" class="form-control" [(ngModel)]="filters.lastname" name="garages">
+                        </div>
+                    </td>
+                    <td>
+                        <div class="form-group">
+                            <input type="text" class="form-control" [(ngModel)]="filters.username" name="username">
+                        </div>
+                    </td>
+                    <td>
+                        <button type="submit" class="btn btn-secondary">
+            Filtrer
+          </button>
+                    </td>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr *ngFor="let user of users">
+                    <th scope="row">{{ user.id }}</th>
+                    <td>{{ user.email }}</td>
+                    <td>{{ user.garages }}</td>
+                    <td>{{ user.firstname }}</td>
+                    <td>{{ user.lastname }}</td>
+                    <td>{{ user.username }}</td>
+                    <td class="restrain">
+                        <button type="button" class="btn btn-sm btn-secondary">
+                    Vue détaillée
+                </button>
+                        <button type="button" class="btn btn-sm btn-secondary">
+                    Editer
+                </button>
+                        <button type="button" class="btn btn-sm btn-secondary">
+                    Supprimer
+                </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </form>
+
+    <nav aria-label="Page navigation example">
+        <ul class="pagination">
+            <li *ngIf="prevLink !== null" class="page-item">
+                <a class="page-link" (click)="loadFirstPage()">
+          First
+        </a>
+            </li>
+
+            <li *ngIf="prevLink !== null" class="page-item">
+                <a class="page-link" (click)="loadPreviousPage()">
+          Previous
+        </a>
+            </li>
+
+            <li *ngFor="let page of getPageNumbers" class="page-item">
+                <a class="page-link" (click)="loadPageByNumber(page)">{{ page }}</a>
+            </li>
+
+            <li *ngIf="nextLink !== null" class="page-item">
+                <a class="page-link" (click)="loadNextPage()">
+          Next
+        </a>
+            </li>
+
+            <li *ngIf="nextLink !== null" class="page-item">
+                <a class="page-link" (click)="loadLastPage()">
+          Last
+        </a>
+            </li>
+        </ul>
+    </nav>
+
+</section>

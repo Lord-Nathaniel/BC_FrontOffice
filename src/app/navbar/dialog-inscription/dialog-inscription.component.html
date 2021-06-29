@@ -1,0 +1,20 @@
+<h1 mat-dialog-title>
+    Formulaire d'inscription</h1>
+<div mat-dialog-content>
+    <mat-form-field>
+        <mat-label>Votre nom :</mat-label>
+        <input matInput [(ngModel)]="data.lastnameInscription" required>
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>Votre prénom :</mat-label>
+        <input matInput [(ngModel)]="data.firstnameInscription" required>
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>Votre adresse mail :</mat-label>
+        <input matInput [(ngModel)]="data.emailInscription" required>
+    </mat-form-field>
+</div>
+<div mat-dialog-actions>
+    <button mat-button [mat-dialog-close]="data" cdkFocusInitial>S'inscrire</button>
+    <button mat-button (click)="onNoClick()">Fermer</button>
+</div>

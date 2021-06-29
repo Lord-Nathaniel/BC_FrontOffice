@@ -1,0 +1,37 @@
+@import '~@angular/material/theming';
+@include mat-core();
+$mat-primary-scheme: ( 100: #f6f6f6, 500: #c49a52, 700: #18191a, contrast: ( 100: #000, 500: #000, 700: #f6f6f6, ));
+$mat-accent-scheme: ( 100: #5e5e5e, 500: #bfbfbf, 700: #242526, contrast: ( 100: #18191a, 500: #18191a, 700: #f6f6f6, ));
+$mat-primary-palette: mat-palette($mat-primary-scheme);
+$mat-accent-palette: mat-palette($mat-accent-scheme);
+//
+// following section is for light mode.
+// use appropriate class name for dark-light
+$app-light-theme: mat-light-theme($mat-primary-palette, $mat-accent-palette);
+.light-mode {
+    @include angular-material-theme($app-light-theme);
+    color: black;
+    background-color: #f6f6f6;
+}
+
+//
+// following section is for dark mode.
+// use appropriate class name for dark-mode
+$app-dark-theme: mat-dark-theme($mat-primary-palette, $mat-accent-palette);
+.dark-mode {
+    @include angular-material-theme($app-dark-theme);
+    color: #f6f6f6;
+    background-color: #18191a;
+}
+
+// $app-small-size: mat-typography-config( $font-family: 'Roboto, monospace', $headline: mat-typography-level(32px, 48px, 700), $body-1: mat-typography-level(16px, 24px, 500));
+.small-size {
+    // @include angular-material-theme($app-small-size);
+    font-size: 2 rem;
+}
+
+// $app-large-size: mat-typography-config( $font-family: 'Arial, monospace', $headline: mat-typography-level(32px, 48px, 700), $body-1: mat-typography-level(16px, 24px, 500));
+.large-size {
+    // @include angular-material-theme($app-large-size);
+    font-size: 1.5rem;
+}
